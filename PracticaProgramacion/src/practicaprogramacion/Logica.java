@@ -53,7 +53,11 @@ public class Logica {
         switch (input.toLowerCase().charAt(0)){
             case 's':
                 return continuar = true;
-            default: 
+            case 'n': 
+                return continuar = false;
+            case 0:
+                return continuar = false;
+            default:
                 return continuar = false;
         }
         
@@ -193,7 +197,7 @@ public class Logica {
         } else if (haAcertadoMeses && !haAcertadoDias) {
             System.out.println("Has acertado el mes, pero no el día " + jugador);
             if (diferenciaDias <= 15) {
-                System.out.println("El dia esta en un rango de entre 1 y 15 días respecto a tu fecha");
+                System.out.println("Caliente caliente (El dia esta en un rango de entre 1 y 15 días respecto a tu fecha)");
             } else {
                 System.out.println("Sigue probando " + jugador);
             }
