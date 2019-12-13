@@ -40,7 +40,7 @@ public class Interfaz {
             /*System.out.println(diaFechaAleatoria + " " + mesFechaAleatoria);*/
             
             long tiempoInicio = 0;
-            tiempoInicio = Logica.startTiempo();
+            tiempoInicio = Logica.instTiempo();
             System.out.println("Introduce una fecha (formato dd-MM-yyyy)");
             String fechaUsuarioString = sc.nextLine();
             LocalDate fechaUsuarioLocalDate = Logica.localDateUsuario(fechaUsuarioString);
@@ -62,7 +62,7 @@ public class Interfaz {
                 } while (!logica.acertarMesYDia(mesFechaUsuario, mesFechaAleatoria, diaFechaUsuario, diaFechaAleatoria));
             }
             long tiempoFinal = 0;
-            tiempoFinal = Logica.finishTiempo();
+            tiempoFinal = Logica.instTiempo();
             long compararInicioConFinalMils = Logica.compararInicioConFin(tiempoInicio, tiempoFinal);
             int minutos = Logica.toMinutes(compararInicioConFinalMils);
             /*Suma de puntos respecto a los minutos que lleva ejecutandose*/

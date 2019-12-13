@@ -31,7 +31,6 @@ public class Logica {
                 input = sc.nextLine();
             } while (input.isEmpty() || Character.isDigit(input.charAt(0)));
         }
-
         //Comprobar todos los valores para ver si son punto (.), coma(,), _, @ o #.
         for (i = 0; i < input.length(); ++i) {
             char inputChar = input.charAt(i);
@@ -43,7 +42,6 @@ public class Logica {
                 System.out.println("Carácter no soportado");
                 permitido = false;
             }
-
         }
     }
 
@@ -59,17 +57,11 @@ public class Logica {
             default:
                 return continuar = false;
         }
-
     }
 
-    public static long startTiempo() {
+    public static long instTiempo() {
         long now = System.currentTimeMillis();
         return now;
-    }
-
-    public static long finishTiempo() {
-        long fin = System.currentTimeMillis();
-        return fin;
     }
 
     public static long compararInicioConFin(long principio, long acabado) {
