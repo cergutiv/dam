@@ -20,7 +20,6 @@ public class Logica {
     public String jugador; //para almacenar el nombre del jugador
 ////////////////////////////////////////////////////////////
 
-    /*Intentar que sea void*/
     public void comprobarNick(String input) {
         char letter;
         int i = 0;
@@ -33,9 +32,8 @@ public class Logica {
             } while (input.isEmpty() || Character.isDigit(input.charAt(0)));
         }
 
-
         //Comprobar todos los valores para ver si son punto (.), coma(,), _, @ o #.
-/*cambiar*/ for (i = 0; i < input.length(); ++i) {
+        for (i = 0; i < input.length(); ++i) {
             char inputChar = input.charAt(i);
             String diccionario = "ABCDEFGHIJKLMNÑOPQRSTUVWXYZabcdefghijklmnñopqrstuvwxyz@#,._ÁÉÍÓÚáéíóú0123456789Üü";
 
@@ -48,20 +46,22 @@ public class Logica {
 
         }
     }
-    public static boolean comprobarFinal(String input){
+
+    public static boolean comprobarFinal(String input) {
         boolean continuar;
-        switch (input.toLowerCase().charAt(0)){
+        switch (input.toLowerCase().charAt(0)) {
             case 's':
                 return continuar = true;
-            case 'n': 
+            case 'n':
                 return continuar = false;
             case 0:
                 return continuar = false;
             default:
                 return continuar = false;
         }
-        
-    } 
+
+    }
+
     public static long startTiempo() {
         long now = System.currentTimeMillis();
         return now;
@@ -168,19 +168,6 @@ public class Logica {
             b = false;
         }
         return b;
-    }
-
-    public int diasEntreFechas(int v1, int v2) {
-        int resultado = 0;
-        if (v1 > v2) {
-            resultado = v1 - v2;
-        } else if (v2 > v1) {
-            resultado = v2 - v1;
-        } else if (v1 == v2) {
-            resultado = 0;
-        }
-        return resultado;
-
     }
 
     public boolean acertarMesYDia(int mes1, int mes2, int dia1, int dia2) {

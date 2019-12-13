@@ -30,23 +30,23 @@ public class Interfaz {
             System.out.println("Se ha generado una fecha aleatoria, " + nickname + " ¡a ver cuánto puedes tardar!");
             LocalDate fechaAleatoria = logica.fechaRandom();
             String fechaAleatoriaFormateada = logica.LocalDateFormateado(fechaAleatoria);
-            
+
             System.out.println(fechaAleatoriaFormateada);
             int diaFechaAleatoria = logica.diaFechas(fechaAleatoria);
             int mesFechaAleatoria = logica.diaMes(fechaAleatoria);
-            
+
             /*System.out.println(diaFechaAleatoria + " " + mesFechaAleatoria);*/
             long tiempoInicio = Logica.startTiempo();
             System.out.println("Introduce una fecha (formato dd-MM-yyyy)");
             String fechaUsuarioString = sc.nextLine();
             LocalDate fechaUsuarioLocalDate = Logica.localDateUsuario(fechaUsuarioString);
-            
+
             System.out.println("Has introducido " + fechaUsuarioLocalDate);
             int diaFechaUsuario = logica.diaFechas(fechaUsuarioLocalDate);
             int mesFechaUsuario = logica.diaMes(fechaUsuarioLocalDate);
-            
+
             System.out.println(diaFechaUsuario + " " + mesFechaUsuario);
-            
+
             if (!logica.acertarMesYDia(mesFechaUsuario, mesFechaAleatoria, diaFechaUsuario, diaFechaAleatoria)) {
                 do {
                     fechaUsuarioString = sc.nextLine();
