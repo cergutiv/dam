@@ -2,7 +2,6 @@ package practicaprogramacion;
 
 import java.time.LocalDate;
 import java.util.Scanner;
-
 /**
  *
  * @author cergutiv
@@ -10,21 +9,23 @@ import java.util.Scanner;
 public class Interfaz {
 
     public static void main(String[] args) {
-        /**/
         Logica logica = new Logica();
         Scanner sc = new Scanner(System.in);
         String nickname;
         int rappelMonedas = logica.rappelMonedas;
+        boolean checkString;
         boolean continuar = true;
         String proseguir = "";
         /**/
         /////////////////////////////////////////////////////////////////////////////////////////////////////
         System.out.println("¡¡Bienvenido!!");
+        do{
         System.out.println("Para comenzar indica tu nombre: (sin espacios, el primer caracter no puede ser un número)");
         System.out.println("Los unicos valores especiales aceptados son: punto (.), coma(,), barra baja(_), arroba(@) y almohadilla(#)");
-        nickname = sc.nextLine(); 
+        nickname = sc.nextLine();
+        continuar = logica.comprobarNick(nickname);
         /*Comprobación del String introducido por el usuario*/
-        logica.comprobarNick(nickname);
+        }while(!continuar);
         logica.jugador = nickname;
         System.out.println("Bienvenido " + nickname);
         /*Bucle para repetir las acciones hasta que continuar = false*/

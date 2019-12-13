@@ -20,7 +20,7 @@ public class Logica {
     public String jugador; //para almacenar el nombre del jugador
 ////////////////////////////////////////////////////////////
 
-    public void comprobarNick(String input) {
+    public boolean comprobarNick(String input) {
         char letter;
         int i = 0;
         boolean permitido = true;
@@ -28,21 +28,23 @@ public class Logica {
         if (input.isEmpty() || Character.isDigit(input.charAt(0))) {
             do {
                 System.out.println("Error, vuelve a introducirlo (no puede estar vacío \n o tener un número en la primera posición)");
-                input = sc.nextLine();
+                
             } while (input.isEmpty() || Character.isDigit(input.charAt(0)));
         }
         //Comprobar todos los valores para ver si son punto (.), coma(,), _, @ o #.
-        for (i = 0; i < input.length(); ++i) {
+        for (i = 0; i < input.length(); i++) {
             char inputChar = input.charAt(i);
             String diccionario = "ABCDEFGHIJKLMNÑOPQRSTUVWXYZabcdefghijklmnñopqrstuvwxyz@#,._ÁÉÍÓÚáéíóú0123456789Üü";
-
             if (diccionario.contains(String.valueOf(inputChar))) {
                 permitido = true;
             } else {
-                System.out.println("Carácter no soportado");
                 permitido = false;
+                System.out.println("Carácter no soportado");
+                i = input.length();
             }
         }
+         return permitido;
+         
     }
 
     public static boolean comprobarFinal(String input) {
@@ -152,15 +154,6 @@ public class Logica {
         return mes;
     }
 
-    public boolean acertarMes(int mes1, int mes2) {
-        boolean b = true;
-        if (mes1 == mes2) {
-            b = true;
-        } else {
-            b = false;
-        }
-        return b;
-    }
 
     public boolean acertarMesYDia(int mes1, int mes2, int dia1, int dia2) {
         boolean haAcertadoMeses = mes1 == mes2;
