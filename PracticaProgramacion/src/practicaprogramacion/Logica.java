@@ -21,14 +21,13 @@ public class Logica {
 ////////////////////////////////////////////////////////////
 
     public boolean comprobarNick(String input) {
-        char letter;
         int i = 0;
         boolean permitido = true;
         //Comprobar si el nick está vacío y si el primer valor es un número
         if (input.isEmpty() || Character.isDigit(input.charAt(0))) {
             do {
-                System.out.println("Error, vuelve a introducirlo (no puede estar vacío \n o tener un número en la primera posición)");
-                
+                System.out.println("Error, vuelve a introducir el valor (el nickname no puede estar vacío o \n tener un número en la primera posición)");
+
             } while (input.isEmpty() || Character.isDigit(input.charAt(0)));
         }
         //Comprobar todos los valores para ver si son punto (.), coma(,), _, @ o #.
@@ -43,51 +42,7 @@ public class Logica {
                 i = input.length();
             }
         }
-         return permitido;
-         
-    }
-
-    public static boolean comprobarFinal(String input) {
-        boolean continuar;
-        switch (input.toLowerCase().charAt(0)) {
-            case 's':
-                return continuar = true;
-            case 'n':
-                return continuar = false;
-            case 0:
-                return continuar = false;
-            default:
-                return continuar = false;
-        }
-    }
-
-    public static long instTiempo() {
-        long now = System.currentTimeMillis();
-        return now;
-    }
-
-    public static long compararInicioConFin(long principio, long acabado) {
-        long tiempoPasadoMils = acabado - principio;
-        return tiempoPasadoMils;
-    }
-
-    public static int toMinutes(long tiempoPasadoMils) {
-        int minutos = (int) (tiempoPasadoMils / 60000);
-        return minutos;
-    }
-
-    public int sumarRappelMonedas(int minutos) {
-        int monedas = rappelMonedas;
-        if (minutos == 0) {
-            monedas = rappelMonedas + 100;
-        } else if (minutos <= 15 || minutos != 0) {
-            monedas = rappelMonedas + 50;
-        } else if (minutos <= 30 || minutos != 15 || minutos != 0) {
-            monedas = rappelMonedas + 25;
-        } else {
-            monedas = rappelMonedas + 5;
-        }
-        return monedas;
+        return permitido;
     }
 
     //Creacion de fecha aleatoria del mismo año de ejecucion
@@ -96,10 +51,6 @@ public class Logica {
         LocalDate hoy = LocalDate.now();
         //año actual
         int annoJuego = hoy.getYear();
-        //fecha minima
-        LocalDate fechaMin = LocalDate.of(annoJuego, Month.JANUARY, 1);
-        //fecha maxima
-        LocalDate fechaMax = LocalDate.of(annoJuego, Month.DECEMBER, 31);
         //numero aleatorio entre 
         int numMesRandom = r.nextInt(12);
         if (numMesRandom == 0) {
@@ -110,7 +61,7 @@ public class Logica {
         //mes aleatorio
         LocalDate conversionAMes = LocalDate.of(annoJuego, numMesRandom, 1);
         Month mesRandom = conversionAMes.getMonth();
-        //año bisiesto
+        //año bisiesto para la longitud del mes por si es febrero
         boolean bisiesto = true;
         if (LocalDate.now().lengthOfYear() == 366) {
             bisiesto = true;
@@ -154,7 +105,6 @@ public class Logica {
         return mes;
     }
 
-
     public boolean acertarMesYDia(int mes1, int mes2, int dia1, int dia2) {
         boolean haAcertadoMeses = mes1 == mes2;
         boolean haAcertadoDias = dia1 == dia2;
@@ -177,4 +127,46 @@ public class Logica {
         return false;
     }
 
+    public static boolean comprobarFinal(String input) {
+        boolean continuar;
+        switch (input.toLowerCase().charAt(0)) {
+            case 's':
+                return continuar = true;
+            case 'n':
+                return continuar = false;
+            case 0:
+                return continuar = false;
+            default:
+                return continuar = false;
+        }
+    }
+
+    public static long instTiempo() {
+        long now = System.currentTimeMillis();
+        return now;
+    }
+
+    public static long compararInicioConFin(long principio, long acabado) {
+        long tiempoPasadoMils = acabado - principio;
+        return tiempoPasadoMils;
+    }
+
+    public static int toMinutes(long tiempoEnMils) {
+        int minutos = (int) (tiempoEnMils / 60000);
+        return minutos;
+    }
+
+    public int sumarRappelMonedas(int minutos) {
+        int monedas = rappelMonedas;
+        if (minutos == 0) {
+            monedas = rappelMonedas + 100;
+        } else if (minutos <= 15 || minutos != 0) {
+            monedas = rappelMonedas + 50;
+        } else if (minutos <= 30 || minutos != 15 || minutos != 0) {
+            monedas = rappelMonedas + 25;
+        } else {
+            monedas = rappelMonedas + 5;
+        }
+        return monedas;
+    }
 }
