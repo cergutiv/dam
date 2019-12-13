@@ -66,7 +66,7 @@ public class Interfaz {
             long compararInicioConFinalMils = Logica.compararInicioConFin(tiempoInicio, tiempoFinal);
             int minutos = Logica.toMinutes(compararInicioConFinalMils);
             /*Suma de puntos respecto a los minutos que lleva ejecutandose*/
-            rappelMonedas = logica.sumarRappelMonedas(minutos);
+            rappelMonedas = rappelMonedas + logica.sumarRappelMonedas(minutos);
             System.out.println("Tienes " + rappelMonedas + " RappelMonedas.");
             System.out.println("¿Quieres continuar? (S/N (Por defecto es N))");
             proseguir = sc.nextLine();
